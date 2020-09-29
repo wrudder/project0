@@ -1,0 +1,86 @@
+html {
+  background-color: green;
+}
+
+body {
+  max-width: 960px;
+  margin: 0 auto;
+  text-align: center;
+  font-family: Arial;
+  position: relative;
+  z-index: -2;
+}
+
+h1 {
+  text-align: center;
+}
+
+.flex-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: -1;
+  background-color: green;
+  border-top: none;
+}
+
+.flex-column {
+height: 100%;
+width: 100%;
+flex-direction: column;
+position: relative;
+z-index: -23;
+}
+
+.flex-wrap {
+/* tells the container to drop down once it reaches max-width */
+flex-wrap: wrap;
+height: 432px;
+width: 432px;
+}
+
+.square {
+border: 2px solid rgba(0, 0, 0, .75);
+height: 140px;
+width: 140px;
+position: relative;
+z-index: -1;
+border-radius: 0.1em;
+background-color: #97ffbc;
+}
+
+.square {
+  font-size: 90px;
+  align-content: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.square:hover {
+background-color: grey;
+opacity: 0.3;
+cursor:
+
+}
+
+.X {
+  cursor: not-allowed;
+  content: url(http://clipart-library.com/images_k/transparent-x-mark/transparent-x-mark-17.png)
+}
+
+.X:hover {
+
+}
+
+.O {
+  cursor: not-allowed;
+content: url(http://clipart-library.com/images_k/transparent-black-circle/transparent-black-circle-12.png)
+}
+
+button {
+  border-radius: 0.3em;
+  width: 120px;
+  background-color: blue;
+  color: white;
+}

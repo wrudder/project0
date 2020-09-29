@@ -1,0 +1,15 @@
+tic tac toe
+-------------------
+9 grids  a 3 by 3 grid
+
+2 input types (norts or crosses)
+
+2 players who are assigned either a nort or a cross (which will remain the same throughout the game)
+
+To begin the game PLAYER 1 chooses a unique grid to assign nort or cross (only one nort or cross per grid)
+
+PLAYER 2 chooses a grid to place their nort or cross (must be different grid)
+
+if a player places 3 of their assigned nort or cross horizontally, diagonally or  vertically = win
+
+if no winner game draws

@@ -1,18 +1,25 @@
 html {
-  background-color: green;
+  background-color: #007280;
 }
 
 body {
-  max-width: 960px;
   margin: 0 auto;
   text-align: center;
   font-family: Arial;
   position: relative;
   z-index: -2;
+  font-family: 'Bangers', cursive;
 }
 
 h1 {
   text-align: center;
+  font-size: 120px;
+  color: white;
+}
+.playerturn {
+  font-size: 40px;
+  color: white;
+  visibility: visible
 }
 
 .flex-container {
@@ -21,8 +28,14 @@ h1 {
   align-items: center;
   position: relative;
   z-index: -1;
-  background-color: green;
+  background-color: #007280;
   border-top: none;
+}
+
+#whosturn {
+  color: red;
+  font-size: 60px;
+  margin-left: 20px;
 }
 
 .flex-column {
@@ -47,7 +60,7 @@ width: 140px;
 position: relative;
 z-index: -1;
 border-radius: 0.1em;
-background-color: #97ffbc;
+background-color: #ff9797;
 }
 
 .square {
@@ -66,7 +79,7 @@ cursor:
 
 .X {
   cursor: not-allowed;
-  content: url(http://clipart-library.com/images_k/transparent-x-mark/transparent-x-mark-17.png)
+  content: url(https://www.iconsdb.com/icons/preview/white/x-mark-xxl.png)
 }
 
 .X:hover {
@@ -75,12 +88,59 @@ cursor:
 
 .O {
   cursor: not-allowed;
-content: url(http://clipart-library.com/images_k/transparent-black-circle/transparent-black-circle-12.png)
+content: url(https://www.iconsdb.com/icons/preview/white/circle-xxl.png)
 }
 
 button {
-  border-radius: 0.3em;
+  border-radius: 0.7em;
   width: 120px;
-  background-color: blue;
+  background-color: white;
+  color: red;
+  height: 30px;
+  box-shadow: 0.2em;
+  margin-top: 20px;
+  font-size: 20px;
+  border: none;
+  position:
+}
+
+
+.canvas1 {
+  position: absolute;
+  width: 450px;
+  height: 430px;
+  pointer-events: none;
+}
+
+#winner {
+  visibility: hidden;
+  position: fixed;
+  justify-content: center;
+  align-items: center;
+  font-size: 50px;
   color: white;
+  align-content: center;
+  display: inline-block;
+  margin-top: -740px;
+
+}
+.tally h3 {
+  font-size: 50px;
+  margin-bottom: 20px;
+  color: white;
+}
+.tally p {
+  display: block;
+  font-size: 30px;
+  margin: 0;
+  color: #b795f3;
+}
+
+.canvas2 {
+  visibility: hidden;
+margin: 0 auto;
+position: absolute;
+width: 100%;
+height: 430px;
+pointer-events: none;
 }

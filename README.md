@@ -2,11 +2,14 @@
 ## By William Rudder
 
 ### HTML
-To begin the project, i started off creating 9 divs which would represent the 3x3 grids of my tic tac toe game.
+To begin the project, I started off creating 9 divs which would represent the 3x3 grids of my tic tac toe game.
+
 
 ### Javascript
+
+##### Adding a class on click:
 I started with a click event in which
- when i clicked on a grid, a class of 'X' or 'O' would be placed into the square. To begin with, both classes were being allocated to each square
+ when i clicked on a grid, a class of 'X' or 'O' would be placed into the square div selected. To begin with, both classes were being allocated to each square
 
 ```javascript
 $('.square').on('click', function(event){
@@ -15,7 +18,8 @@ $('.square').on('click', function(event){
   var $addclass = $(this).addClass('O');
 }
 ```
-So, I introduced a if statement which defined whos turn it was with a number.
+##### Introducing Player turns:
+So, I introduced a If statement which defined who's turn it was with a number.
 
 ```javascript
 let player = 1;
@@ -28,7 +32,8 @@ $('.square').on('click', function(event){
 }
 ```
 
-after a turn was made, a +1 is added to the player to indicate now it is player 2's turn.
+after a turn was made, a +1 is added to the player to indicate now it is player 2's turn (player++).
+
 ```javascript
 let player = 1;
 $('.square').on('click', function(event){
@@ -37,7 +42,7 @@ var changeturn = player++;
 }
 ```
 
-for player 2 turn, i simple repeated the same process but the class added changed to 'O'. The player turn was just returned to player 1 once this was executed.
+For player 2's turn, I simply repeated the same process but the class added was 'O'. The player turn was then returned to player 1 once this was executed.
 ```javascript
 else if (player === 2) {
   var $addclass = $(this).addClass('O');
@@ -45,9 +50,9 @@ else if (player === 2) {
 player = 1
 }
 ```
-
-
+##### Preventing a second class from being added to a grid:
 Next, a problem arose where if i clicked on the same grid again it would be asigned another class. to overcome this, i introduced  hasClass to the beginning of the function... indicating if the grid has a class, another can't be added.
+
 ```javascript
 $('.square').on('click', function(event){
     //this line will prevenet another line from being selected
@@ -69,6 +74,8 @@ const changeTurnHTML = function () {
   }
 };
 ```
+
+#### Checking for wins!:
 next was to create the all intimidating function to check if a player has won.
 
 To do this, i found a list of winning sequences on google (thanks google) and assigned different ID's to each of them.
@@ -117,6 +124,8 @@ if(player === 1) {
   player = 1
 }
 ```
+
+#### Playing around with jCanvas:
 Next, I had a play around with jcanvas and found a way to implement a line that goes through the winning sequences.
 
 In doing this, I ran into quite a few problems with the canvas not allowing me to click on the grid elements. After looking around I found an easy fix
@@ -144,7 +153,7 @@ if ($('.sq0').hasClass(classType) && $('.sq1').hasClass(classType) && $('.sq2').
     c.stroke();
 return true;
 ```
- lastly, I wanted to have a reset button that cleared all the classes of the cells as well as the canvas line. This was pretty straight forward:
+ After this, I wanted to have a reset button that cleared all the classes of the cells as well as the canvas line. This was pretty straight forward:
 
  ```javascript
  $('.reset').on('click', function () {
@@ -154,3 +163,67 @@ return true;
  })
 
  ```
+Lastly, I wanted to to have some sort of winning animation effect. This was quite difficult to begin with and only managed to get one for the 'O' player win. It's not the best animation I've ever seen but It's working (to a degree (pun intended)).
+
+
+```javascript
+var x = Math.random()*innerWidth;
+var y = Math.random()*innerHeight;
+var dy = (Math.random() -0.5) * 8;
+var dx = (Math.random() -0.5) * 8;
+var radius = 30;
+var circle = new Circle(100, 200, 3, 3, 30);
+
+function Circle (x, y, dx, dy, radius) {
+    this.x = x;
+    this.y= y;
+    this.dx = dx;
+    this.dy = dy;
+    this.radius = radius;
+
+    this.draw = function () {
+    c2.beginPath();
+    c2.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
+    c2.strokeStyle = 'white';
+    c2.stroke();
+    c2.fill();
+    }
+
+  this.update = function() {
+  if (this.y + radius  > innerHeight || this.y - this.radius < 0) {
+    this.dy = -this.dy
+    }
+
+  if (this.x + this.radius  > innerWidth || this.y - this.radius < 0) {
+    this.dx = -this.dx;
+    }
+    this.y += this.dy;
+    this.x += this.dx;
+    this.draw();
+  }
+}
+
+var circleArray = [];
+
+for (var i = 0; i < 400; i++) {
+  var x = Math.random()* (innerWidth - radius * 2) + radius;
+  var y = Math.random()* (innerHeight - radius * 2) + radius;;
+  var dy = (Math.random() -0.5);
+  var dx = (Math.random() -0.5);
+  var radius = 12;
+  circleArray.push(new Circle(x, y, dx, dy, radius))
+}
+
+
+function animate() {
+  requestAnimationFrame(animate);
+  c2.clearRect(0, 0, innerWidth, innerHeight);
+for (var i = 0; i < circleArray.length; i++) {;
+circleArray[i].update();
+  }
+}
+animate();
+
+
+```
+I had trouble fitting this to the whole web page because of prior css styling. The easiest thing I could do instead was just put it in the container section.

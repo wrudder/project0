@@ -73,7 +73,6 @@ background-color: #ff9797;
 .square:hover {
 background-color: grey;
 opacity: 0.3;
-cursor:
 
 }
 
@@ -82,9 +81,6 @@ cursor:
   content: url(https://www.iconsdb.com/icons/preview/white/x-mark-xxl.png)
 }
 
-.X:hover {
-
-}
 
 .O {
   cursor: not-allowed;
@@ -104,7 +100,7 @@ button {
   position:
 }
 
-
+/* canvas for winning line  */
 .canvas1 {
   position: absolute;
   width: 450px;
@@ -112,16 +108,19 @@ button {
   pointer-events: none;
 }
 
+
+/* this displays winning divs/ tallys/ canvases  */
+
 #winner {
   visibility: hidden;
   position: fixed;
   justify-content: center;
   align-items: center;
-  font-size: 50px;
-  color: white;
+  font-size: 80px;
+  color: #b795f3;
   align-content: center;
   display: inline-block;
-  margin-top: -740px;
+  margin-top: -780px;
 
 }
 .tally h3 {

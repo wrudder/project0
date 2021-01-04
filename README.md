@@ -1,6 +1,6 @@
 # TIC TAC TOE
 ## By William Rudder
-
+Link to game: https://wrudder.github.io/project0/
 ### HTML
 To begin the project, I started off creating 9 divs which would represent the 3x3 grids of my tic tac toe game.
 

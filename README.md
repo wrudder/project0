@@ -1,4 +1,4 @@
-# TIC TAC TOE by
+# TIC TAC TOE
 ## By William Rudder
 
 ### HTML

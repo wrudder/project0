@@ -78,13 +78,13 @@ opacity: 0.3;
 
 .X {
   cursor: not-allowed;
-  content: url(https://www.iconsdb.com/icons/preview/white/x-mark-xxl.png)
+  content: url('../images/cross1.png')
 }
 
 
 .O {
   cursor: not-allowed;
-content: url(https://www.iconsdb.com/icons/preview/white/circle-xxl.png)
+content: url('../images/circle5.png')
 }
 
 button {
